@@ -25,6 +25,16 @@ $env:OPENROUTER_API_KEY="..."
 .\.venv-agentk\Scripts\python.exe auto_dacon.py build-aide-rag `
   --rag-path "C:\Auto_Dacon_RAG\kaggle_cases_db"
 
+$env:AUTO_DACON_RAMP_PRESET="agentk"
+.\.venv-agentk\Scripts\python.exe auto_dacon.py run-project `
+  --project-dir "C:\path\to\Smart-Warehouse-Shipment-Delay-Prediction" `
+  --workspace-name "C:\Auto_Dacon_Workspace" `
+  --output-root "C:\Auto_Dacon_Outputs"
+```
+
+After the base run is stable, Agent_K setup RAG can be enabled:
+
+```powershell
 .\.venv-agentk\Scripts\python.exe auto_dacon.py run-project `
   --project-dir "C:\path\to\Smart-Warehouse-Shipment-Delay-Prediction" `
   --workspace-name "C:\Auto_Dacon_Workspace" `
