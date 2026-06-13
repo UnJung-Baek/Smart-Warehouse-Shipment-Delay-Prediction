@@ -25,12 +25,15 @@ $env:OPENROUTER_API_KEY="..."
 .\.venv-agentk\Scripts\python.exe auto_dacon.py build-aide-rag `
   --rag-path "C:\Auto_Dacon_RAG\kaggle_cases_db"
 
-$env:AUTO_DACON_RAMP_PRESET="agentk"
 .\.venv-agentk\Scripts\python.exe auto_dacon.py run-project `
   --project-dir "C:\path\to\Smart-Warehouse-Shipment-Delay-Prediction" `
   --workspace-name "C:\Auto_Dacon_Workspace" `
   --output-root "C:\Auto_Dacon_Outputs"
 ```
+
+Auto_Dacon defaults to the Agent_K-style preset. That means the LLM writes the
+starting kit/baseline code during setup, then RAMP runs the baseline and the
+hyperopt/blend search.
 
 After the base run is stable, Agent_K setup RAG can be enabled:
 
@@ -49,10 +52,11 @@ The expected output is:
 C:\Auto_Dacon_Outputs\smart_warehouse_shipment_delay_prediction\submission.csv
 ```
 
-## Fallback Baseline
+## Emergency Fallback Baseline
 
 The preferred path is the full Agent_K/Auto_Dacon run above. If the Windows RAMP
-race stalls, use the portable LightGBM fallback only to get a submit-ready file:
+race stalls, use the portable LightGBM fallback only to get a submit-ready file.
+This is separate from the Agent_K LLM-generated baseline:
 
 ```powershell
 .\.venv-agentk\Scripts\python.exe auto_dacon.py baseline-project `
