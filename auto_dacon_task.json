@@ -4,7 +4,8 @@
   "id_column": "ID",
   "target_column": "avg_delay_minutes_next_30m",
   "metric": "MAE",
-  "prepared_at": "2026-06-13T21:07:41",
+  "competition_context_file": "competition_context.md",
+  "prepared_at": "2026-06-14T02:12:40",
   "data_dir": "data\\dacon\\smart_warehouse_shipment_delay_prediction",
   "train_profile": {
     "file": "train.csv",
