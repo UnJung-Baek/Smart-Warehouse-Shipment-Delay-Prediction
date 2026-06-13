@@ -1,6 +1,12 @@
 # smart_warehouse_shipment_delay_prediction
 
-This repository stores notes and outputs for a DACON competition run driven by Auto_Dacon.
+This repository stores one DACON competition project.
+
+Reusable engine repository:
+https://github.com/UnJung-Baek/Auto_Dacon
+
+This project repository contains only the competition-specific metadata, context,
+data files, notes, and local outputs for the smart warehouse competition.
 
 - Competition: https://dacon.io/competitions/official/236696/overview/description
 - Metric: MAE
@@ -8,8 +14,7 @@ This repository stores notes and outputs for a DACON competition run driven by A
 
 ## Run with Auto_Dacon
 
-This repository stores the competition-specific data and metadata. Run the agent from
-the reusable Auto_Dacon repository:
+Run the reusable Auto_Dacon engine from its own repository:
 
 ```powershell
 git clone https://github.com/UnJung-Baek/Auto_Dacon.git
@@ -33,3 +38,20 @@ The expected output is:
 ```text
 C:\Auto_Dacon_Outputs\smart_warehouse_shipment_delay_prediction\submission.csv
 ```
+
+## Fallback Baseline
+
+The preferred path is the full Agent_K/Auto_Dacon run above. If the Windows RAMP
+race stalls, use the portable LightGBM fallback only to get a submit-ready file:
+
+```powershell
+.\.venv-agentk\Scripts\python.exe auto_dacon.py baseline-project `
+  --project-dir "C:\path\to\Smart-Warehouse-Shipment-Delay-Prediction" `
+  --output-root "C:\Auto_Dacon_Outputs" `
+  --max-cpu 4
+```
+
+Latest known fallback result:
+
+- File: `outputs/submission_latest.csv`
+- Public score: `11.2360866528`
