@@ -35,6 +35,11 @@ Auto_Dacon defaults to the Agent_K-style preset. That means the LLM writes the
 starting kit/baseline code during setup, then RAMP runs the baseline and the
 hyperopt/blend search.
 
+Default OpenRouter model roles:
+
+- `agent.llm`: `openrouter/qwen25_72b`
+- `agent.code_llm`: `openrouter/deepseek_v3`
+
 After the base run is stable, Agent_K setup RAG can be enabled:
 
 ```powershell
